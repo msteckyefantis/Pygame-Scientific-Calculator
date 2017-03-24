@@ -11,8 +11,8 @@ DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
 
 
 #Font data
-BASICFONT = "C:\\Windows\\Fonts\\segoeuil.ttf"
-BOLDFONT = "C:\\Windows\\Fonts\\segoeuib.ttf"
+BASICFONT = "./segoeuil.ttf"
+BOLDFONT = "./SEGOEUIB.TTF"
 FONTSIZE = int( WINDOWWIDTH * 0.024 )
 
 
@@ -96,11 +96,11 @@ ButtonHover = None
 KeyboardButtonPressedStatus = [()]
 
 for i in range(323):
-    KeyboardButtonPressedStatus[0] += (0,) 
+    KeyboardButtonPressedStatus[0] += (0,)
 
 def KeyboardButtonPressedStatusReset():
     KeyboardButtonPressedStatus[0] = pygame.key.get_pressed()
-        
+
 
 # Scroll Wheel Variable
 ScrollWheelVariable = [None,0,0,0,0]
@@ -171,7 +171,7 @@ class Button:
         self.pressedcolor = pressedcolor
         self.textstaticbool = textstaticbool
 
-        
+
         if borderbool:
             self.rectparam = (x + bordermargin,y + bordermargin,
                               w - (2 * bordermargin) ,h  - (2 * bordermargin))
@@ -201,8 +201,8 @@ class Button:
             elif self.textcoordmode == TXTCOORDMODEcenter:
                 self.textRect.center = (self.textXposition + self.textXpositionadjustment ,
                                 self.textYposition + self.textYpositionadjustment)
-            
-            
+
+
     def __repr__(self):
         if self.buttontext != None:
             return str(self.buttontext)
@@ -242,7 +242,7 @@ class Button:
                 fontObj = pygame.font.Font(self.textfont,
                                            self.textsize + self.textsizeadjustment)
                 textSurf = fontObj.render(self.buttontext,
-                                          True, self.textcolor)                  
+                                          True, self.textcolor)
                 textRect = textSurf.get_rect()
                 # Text coordinate relative to center or top left of button
                 if self.textcoordmode == TXTCOORDMODEtopleft:
@@ -255,7 +255,7 @@ class Button:
 
     def draw2(self, RectColor = None): # less "static"
         # drawing border
-        if self.borderbool: 
+        if self.borderbool:
             pygame.draw.rect(DISPLAYSURF, self.bordercolor,\
                              (self.x, self.y, self.w, self.h))
         if RectColor == None:
@@ -288,7 +288,7 @@ class Button:
                               h - (2 * bordersize)))
 ############ EXTRAZ
 
-            
+
 # draw(self, colorsetting = None, ButtonHighlight = False, BorderHighlight = False):
         # Drawing if Highlighted
         # CONSIDER OMITING THIS PART, JUST MAKE MOUSE
@@ -305,7 +305,7 @@ class Button:
            # else:
             #    pygame.draw.rect(DISPLAYSURF, self.bgcolor, self.rectparam)
 
-#     
+#
 #def drawKeypad():
 #    #draws Keypad Button Container
 #    KBC.draw()
@@ -318,7 +318,7 @@ class Button:
 #    buttonListDrawer(CTypeButtons)
 #    INVButton.draw()
 #    DeleteButton.draw()
-#    EnterButton.draw()   TXTCOORDMODEmidleft 
+#    EnterButton.draw()   TXTCOORDMODEmidleft
 
 
 class MyText:
@@ -337,7 +337,7 @@ class MyText:
         self.Fontsize = Fontsize
         self.text = text
         self.textcolor = textcolor
-        self.textcoordmode = textcoordmode 
+        self.textcoordmode = textcoordmode
         self.staticbool = staticbool
 
         if self.staticbool:
@@ -358,12 +358,12 @@ class MyText:
             elif self.textcoordmode == TXTCOORDMODEcenter:
                 self.TextRect.center = (self.x,
                                         self.y)
-                
-    
-    
+
+
+
     def __repr__(self):
         return str([self.text,"x = ",self.x,"y = ",self.y])
-                 
+
 
     def __str__(self):
         return self.text
@@ -371,7 +371,7 @@ class MyText:
     def write(self):
         if self.staticbool:
             DISPLAYSURF.blit(self.TextSurf, self.TextRect)
-        else:      
+        else:
             FontObj = pygame.font.Font(self.Font,
                                        self.Fontsize)
             TextSurf = FontObj.render(self.text,
@@ -401,7 +401,7 @@ class MyText:
         elif self.textcoordmode ==  TXTCOORDMODEcenter:
             TextRect.center = (self.x, self.y)
         DISPLAYSURF.blit(TextSurf, TextRect)
-            
+
     def write3(self, Text, Textsize, Textx, Texty):
         FontObj = pygame.font.Font(self.Font,
                                    Textsize)
@@ -418,7 +418,7 @@ class MyText:
             TextRect.center = ( Textx, Texty)
         DISPLAYSURF.blit(TextSurf, TextRect)
 
-    def writeColor(self,Color):  
+    def writeColor(self,Color):
         FontObj = pygame.font.Font(self.Font,
                                        self.Fontsize)
         TextSurf = FontObj.render(self.text,
@@ -431,8 +431,8 @@ class MyText:
         elif self.textcoordmode ==  TXTCOORDMODEtopleft:
             TextRect.topleft = (self.x, self.y)
         DISPLAYSURF.blit(TextSurf, TextRect)
-        
-        
+
+
 class MyRect: #that doesn't sound right lol
     def __init__(self,
              x, # x
@@ -448,11 +448,11 @@ class MyRect: #that doesn't sound right lol
         self.color = color
         self.rectparam = (x,y,w,h)
         self.thickness = thickness
-        
+
 
     def __repr__(self):
         return str(["x = ",self.x,"y = ",self.y])
-                 
+
 
     def __str__(self):
         return  "x = "+ str(self.x)+ " y = " + str(self.y)
@@ -489,7 +489,7 @@ class MyEquiTri: #draws equilateral triangle
         self.color = color
         self.thickness = thickness
 
-     
+
         if self.PointingUp:
             self.P1 = (self.leftx, \
                       self.y + self.h - 1)
@@ -505,17 +505,17 @@ class MyEquiTri: #draws equilateral triangle
                       self.y+ self.h- 1)
 
         self.Plist = (self.P1, self.P2, self.P3)
-    
+
 
 
 
 
 
     def __repr__(self):
-        return "Leftmost x = " + str(self.leftx) + ", h = "  + str(self.h) 
+        return "Leftmost x = " + str(self.leftx) + ", h = "  + str(self.h)
 
     def __str__(self):
-        return  "Leftmost x = " + str(self.leftx) + ", h = "  + str(self.h) 
+        return  "Leftmost x = " + str(self.leftx) + ", h = "  + str(self.h)
 
 
 
@@ -527,5 +527,3 @@ class MyEquiTri: #draws equilateral triangle
         else:
             pygame.draw.polygon(DISPLAYSURF, color,
                             self.Plist, self.thickness)
-    
-

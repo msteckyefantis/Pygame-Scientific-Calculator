@@ -19,7 +19,7 @@ SFBTextColor = WHITE
 SFBTextx = SFBx + (SFBw/2)
 SFBTextySpread = 30
 SFBTextySpreadb = 20 # for SFS mode
-SFBTexty = SFBy + (SFBh/2) - SFBTextySpread 
+SFBTexty = SFBy + (SFBh/2) - SFBTextySpread
 SFBTextCoordmode = TXTCOORDMODEcenter
 SFBfont = BOLDFONT
 SFBfontsize = 24
@@ -43,7 +43,7 @@ SpecialFunctionsButton = Button(\
                  None,# text y adj
                  True, # border bool
                  SFBBorderColor,# border color
-                 SFBBorderMargin , # border margin 
+                 SFBBorderMargin , # border margin
                  SFBhighlightcolor, #highlight Color
                  SFBpressedcolor, # pressed color
                  None, # mode tuple
@@ -60,7 +60,7 @@ SFBTextBorder = MyRect(\
              thickness = 0)# thickness
 
 
-# special functions SP text 
+# special functions SP text
 
 SFBTextSwitch = MyText(\
              SFBTextx,#x
@@ -145,7 +145,7 @@ def drawSpecialFunctionsButton(ButtonHover, ButtonPressed):
         SFBTextBorder.draw2(LIGHTBLUE)
     else:
         SFBTextBorder.draw()
-    
+
 
     SFBTextSwitch.write()
     SFBTextCalculator_Mode.write()
@@ -181,7 +181,7 @@ SpecialFunctionsScreen = Button(\
                  None,# text y adj
                  True, # border bool
                  SFSBorderColor,# border color
-                 SFSBorderMargin , # border margin 
+                 SFSBorderMargin , # border margin
                  None, #highlight Color
                  None, # pressed color
                  None, # mode tuple
@@ -238,7 +238,7 @@ SFSTitleLeftText = MyText(\
              "functions",#text
              SFBTextColor,#text color
              SFBTextCoordmode,#text coord mode
-             True)# static bool 
+             True)# static bool
 
 SFSTitleRightText = MyText(\
              SFSTitleRightTextBackground.x + (SFSTitleRightTextBackground.w/2),#x
@@ -248,7 +248,7 @@ SFSTitleRightText = MyText(\
              "constants",#text
              SFBTextColor,#text color
              SFBTextCoordmode,#text coord mode
-             True)# static bool 
+             True)# static bool
 
 
 #SFS Navigation buttons
@@ -299,7 +299,7 @@ SFSLeftUpButtonArrow = MyEquiTri(\
              SFSLeftUpButton.x + (SFSLeftUpButton.w/2)  - (SFSButtonArroww/2), #Left x
              SFSLeftUpButton.y, # y value of highest point
              SFSButtonArroww, # w
-             SFSLeftUpButton.h, # h    
+             SFSLeftUpButton.h, # h
              True,# pointing up or down
              (  0,   0, 130), # color
              thickness = 0)
@@ -308,7 +308,7 @@ SFSRightUpButtonArrow = MyEquiTri(\
              SFSRightUpButton.x + (SFSRightUpButton.w/2)  - (SFSButtonArroww/2), #Left x
              SFSRightUpButton.y, # y value of highest point
              SFSButtonArroww, # w
-             SFSRightUpButton.h, # h    
+             SFSRightUpButton.h, # h
              True,# pointing up or down
              (  0,   0, 130), # color
              thickness = 0)
@@ -317,7 +317,7 @@ SFSLeftDownButtonArrow = MyEquiTri(\
              SFSLeftDownButton.x + (SFSLeftDownButton.w/2)  - (SFSButtonArroww/2), #Left x
              SFSLeftDownButton.y, # y value of highest point
              SFSButtonArroww, # w
-             SFSLeftDownButton.h, # h    
+             SFSLeftDownButton.h, # h
              False,# pointing up or down
              (  0,   0, 130), # color
              thickness = 0)
@@ -327,7 +327,7 @@ SFSRightDownButtonArrow = MyEquiTri(\
              SFSRightDownButton.x + (SFSRightDownButton.w/2)  - (SFSButtonArroww/2), #Left x
              SFSRightDownButton.y, # y value of highest point
              SFSButtonArroww, # w
-             SFSRightDownButton.h, # h    
+             SFSRightDownButton.h, # h
              False,# pointing up or down
              (  0,   0, 130), # color
              thickness = 0)
@@ -375,7 +375,7 @@ def getSFSSeperatorYValues(NumberOfSlots, offset):
     Spacing = int(Difference/NumberOfSlots)
     YList = []
     for i in range(NumberOfSlots + 1):
-        YList.append((Top + i *Spacing) + offset) 
+        YList.append((Top + i *Spacing) + offset)
     return(YList)
 
 
@@ -424,7 +424,7 @@ def createSFSTextBackground():
 
 SFSTextBackgroundBoxes = createSFSTextBackground()
 
-def drawSFSTextBackgroundBoxes(ButtonPressed, ButtonHover):    
+def drawSFSTextBackgroundBoxes(ButtonPressed, ButtonHover):
     for box in SFSTextBackgroundBoxes:
         if ButtonPressed == box:
             box.draw2(LIGHTBLACK)
@@ -438,15 +438,15 @@ def drawSFSTextBackgroundBoxes(ButtonPressed, ButtonHover):
 
 
 # Special Functions Data and Text Slots
-                            
+
 SFSFunctionsTextSlotStartIndex = [0]
 
 
 SpecialFunctionsList = [("abs(x)", "Absolute value of x", "abs"),
                         ("cosh(x)", "Hyperbolic cosine function", "cosh"),
-                        ("ceiling(x)", "The smallest integral value ≥ x", "ceiling"),
+                        ("ceiling(x)", "The smallest integer value ≥ x", "ceiling"),
                         ("fac(x)", "x!", "fac"),
-                        ("floor(x)", "The smallest integral value ≤ x", "floor"),
+                        ("floor(x)", "The smallest integer value ≤ x", "floor"),
                         ("Γ(x)", "Gamma function", "Γ"),
                         ("H(x)", "Heaviside step function", "H"),
                         ("max(a,b,c, ...)","Max value of the arguments", "max"),
@@ -493,7 +493,7 @@ def CreateSpecialFunctionsTextSlots(NumberOfSFSSlots):
              False)) #staticbool)
 
 
-        
+
     return TopTextSlots, BottomTextSlots
 
 
@@ -513,13 +513,13 @@ def drawSFSFunctionsTextSlots():
         SFSFunctionsBottomTextSlots[i].write2(SpecialFunctionsList[\
            (SFSFunctionsTextSlotStartIndex[0] + i)\
                     % len(SpecialFunctionsList)][1])
-    
+
     # Keeping start index inbetween 0 and 7
     if SFSFunctionsTextSlotStartIndex[0] >= len(SpecialFunctionsList)  \
                or SFSFunctionsTextSlotStartIndex[0] < 0:
                 SFSFunctionsTextSlotStartIndex[0] = \
                      SFSFunctionsTextSlotStartIndex[0]%len(SpecialFunctionsList)
-    
+
 
 # SFS constants  stuff
 
@@ -573,7 +573,7 @@ def CreateSFSConstantsTextSlots(NumberOfSFSSlots):
              False)) #staticbool)
 
 
-        
+
     return TopTextSlots, BottomTextSlots
 
 
@@ -590,7 +590,7 @@ def drawSFSConstantsTextSlots():
         SFSConstantsBottomTextSlots[i].write2(SFSConstantsList[\
            (SFSConstantsTextSlotStartIndex[0] + i)\
                     % len(SFSConstantsList)][1])
-       
+
 
 
 def drawSpecialFunctionsMenu(ButtonPressed, ButtonHover):
@@ -609,7 +609,7 @@ def drawSpecialFunctionsMenu(ButtonPressed, ButtonHover):
     #SFSFunctionsScrollWheelZone.draw()
     #SFSConstantsScrollWheelZone.draw()
 
-    
+
 
 ## ScrollWheel Function stuff
 
